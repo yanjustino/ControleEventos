@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControleEventos.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,9 +18,12 @@ namespace ControleEventos
             InitializeComponent();
         }
 
-        private void fimLabel_Click(object sender, EventArgs e)
+        private void eventoBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-
+            foreach (var item in eventoBindingSource.List)
+            {
+                Console.WriteLine(((Evento)item).Titulo);
+            }
         }
     }
 }

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.Label idLabel;
-            System.Windows.Forms.Label periodoLabel;
             System.Windows.Forms.Label tituloLabel;
             System.Windows.Forms.Label bairroLabel;
             System.Windows.Forms.Label cEPLabel;
@@ -41,7 +40,6 @@
             System.Windows.Forms.Label uFLabel;
             System.Windows.Forms.Label fimLabel;
             System.Windows.Forms.Label inicioLabel;
-            this.eventoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eventoBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -56,7 +54,6 @@
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.eventoBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.idTextBox = new System.Windows.Forms.TextBox();
-            this.periodoTextBox = new System.Windows.Forms.TextBox();
             this.tituloTextBox = new System.Windows.Forms.TextBox();
             this.bairroTextBox = new System.Windows.Forms.TextBox();
             this.cEPTextBox = new System.Windows.Forms.TextBox();
@@ -66,8 +63,8 @@
             this.uFTextBox = new System.Windows.Forms.TextBox();
             this.fimDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.inicioDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.eventoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             idLabel = new System.Windows.Forms.Label();
-            periodoLabel = new System.Windows.Forms.Label();
             tituloLabel = new System.Windows.Forms.Label();
             bairroLabel = new System.Windows.Forms.Label();
             cEPLabel = new System.Windows.Forms.Label();
@@ -77,14 +74,10 @@
             uFLabel = new System.Windows.Forms.Label();
             fimLabel = new System.Windows.Forms.Label();
             inicioLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.eventoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventoBindingNavigator)).BeginInit();
             this.eventoBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventoBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // eventoBindingSource
-            // 
-            this.eventoBindingSource.DataSource = typeof(ControleEventos.Models.Evento);
             // 
             // eventoBindingNavigator
             // 
@@ -204,11 +197,11 @@
             // eventoBindingNavigatorSaveItem
             // 
             this.eventoBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.eventoBindingNavigatorSaveItem.Enabled = false;
             this.eventoBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("eventoBindingNavigatorSaveItem.Image")));
             this.eventoBindingNavigatorSaveItem.Name = "eventoBindingNavigatorSaveItem";
             this.eventoBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.eventoBindingNavigatorSaveItem.Text = "Save Data";
+            this.eventoBindingNavigatorSaveItem.Click += new System.EventHandler(this.eventoBindingNavigatorSaveItem_Click);
             // 
             // idLabel
             // 
@@ -227,27 +220,10 @@
             this.idTextBox.Size = new System.Drawing.Size(100, 20);
             this.idTextBox.TabIndex = 2;
             // 
-            // periodoLabel
-            // 
-            periodoLabel.AutoSize = true;
-            periodoLabel.Location = new System.Drawing.Point(37, 92);
-            periodoLabel.Name = "periodoLabel";
-            periodoLabel.Size = new System.Drawing.Size(46, 13);
-            periodoLabel.TabIndex = 3;
-            periodoLabel.Text = "Periodo:";
-            // 
-            // periodoTextBox
-            // 
-            this.periodoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventoBindingSource, "Periodo", true));
-            this.periodoTextBox.Location = new System.Drawing.Point(89, 89);
-            this.periodoTextBox.Name = "periodoTextBox";
-            this.periodoTextBox.Size = new System.Drawing.Size(100, 20);
-            this.periodoTextBox.TabIndex = 4;
-            // 
             // tituloLabel
             // 
             tituloLabel.AutoSize = true;
-            tituloLabel.Location = new System.Drawing.Point(37, 118);
+            tituloLabel.Location = new System.Drawing.Point(37, 92);
             tituloLabel.Name = "tituloLabel";
             tituloLabel.Size = new System.Drawing.Size(36, 13);
             tituloLabel.TabIndex = 5;
@@ -256,7 +232,7 @@
             // tituloTextBox
             // 
             this.tituloTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventoBindingSource, "Titulo", true));
-            this.tituloTextBox.Location = new System.Drawing.Point(89, 115);
+            this.tituloTextBox.Location = new System.Drawing.Point(89, 89);
             this.tituloTextBox.Name = "tituloTextBox";
             this.tituloTextBox.Size = new System.Drawing.Size(100, 20);
             this.tituloTextBox.TabIndex = 6;
@@ -397,6 +373,10 @@
             this.inicioDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.inicioDateTimePicker.TabIndex = 22;
             // 
+            // eventoBindingSource
+            // 
+            this.eventoBindingSource.DataSource = typeof(ControleEventos.Models.Evento);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,17 +400,15 @@
             this.Controls.Add(this.uFTextBox);
             this.Controls.Add(idLabel);
             this.Controls.Add(this.idTextBox);
-            this.Controls.Add(periodoLabel);
-            this.Controls.Add(this.periodoTextBox);
             this.Controls.Add(tituloLabel);
             this.Controls.Add(this.tituloTextBox);
             this.Controls.Add(this.eventoBindingNavigator);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.eventoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventoBindingNavigator)).EndInit();
             this.eventoBindingNavigator.ResumeLayout(false);
             this.eventoBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,7 +431,6 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton eventoBindingNavigatorSaveItem;
         private System.Windows.Forms.TextBox idTextBox;
-        private System.Windows.Forms.TextBox periodoTextBox;
         private System.Windows.Forms.TextBox tituloTextBox;
         private System.Windows.Forms.TextBox bairroTextBox;
         private System.Windows.Forms.TextBox cEPTextBox;
